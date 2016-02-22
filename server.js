@@ -22,6 +22,21 @@ app.post('/login', (req, res) => {
   res.redirect('/');
 });
 
+app.get('/register', (req, res) => {
+  res.render('register');
+});
+
+app.post('/register', (req, res) => {
+  if (req.body.password === req.body.verify) {
+    res.redirect('/login');
+  } else {
+    res.render('register', {
+      email: req.body.email,
+      message: 'Passwords do not match'
+    });
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`App listening on port ${PORT}`);
 });
