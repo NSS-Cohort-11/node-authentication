@@ -6,6 +6,7 @@ const flash = require('connect-flash');
 const methodOverride = require('method-override');
 const mongoose = require('mongoose');
 const passport = require('passport');
+const path = require('path');
 const session = require('express-session');
 const RedisStore = require('connect-redis')(session);
 
@@ -16,6 +17,7 @@ const PORT = process.env.PORT || 3000;
 const SESSION_SECRET = process.env.SESSION_SECRET || 'secret';
 
 app.set('view engine', 'jade');
+app.set('views', path.join(process.cwd(), '/lib'));
 
 app.locals.title = 'Authenticaion App';
 
