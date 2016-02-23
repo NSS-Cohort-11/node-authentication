@@ -1,0 +1,4 @@
+.flash-messages
+  each msgs, type in messages
+    for msg in msgs
+      p(class='bg-#{type}')= msg
